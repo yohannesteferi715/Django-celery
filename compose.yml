@@ -1,4 +1,6 @@
 services:
+  redis:
+    image: redis:7-alpine
   django:
     container_name: django
     build:
@@ -14,9 +16,10 @@ services:
       - DEBUG=1
       - SECRET_KEY=45YHJM
       - ALLOWED_HOSTS=localhost,127.0.0.1
+    depends_on:
+      - redis
 
 
       
 
     
-        
